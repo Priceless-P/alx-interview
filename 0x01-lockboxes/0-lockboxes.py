@@ -5,11 +5,9 @@
 
 def canUnlockAll(boxes):
     """Determines if all the boxes can be opened"""
-    opened_boxes = set()
-
+    opened = [False] * len(boxes)
     # first box is already open
-    opened_boxes.add(0)
-
+    opened[0] = True
     # keep track of box that needs to be checked
     stack = [0]
 
@@ -17,7 +15,7 @@ def canUnlockAll(boxes):
         current_box = stack.pop()
 
         for key in boxes[current_box]:
-            if key not in opened_boxes:
-                opened_boxes.add(key)
+            if not opened[key]:
+                opened[key] = True
                 stack.append(key)
-    return len(opened_boxes) == len(boxes)
+    return all(opened)
