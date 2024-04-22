@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Pascals Triangle"""
+
+
 def pascal_triangle(n: str):
     """Generate a Pascals triangle given a
     number of row. It returns a List of List of Integers"""
