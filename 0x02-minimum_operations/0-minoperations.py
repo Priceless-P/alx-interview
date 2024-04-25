@@ -10,13 +10,17 @@ def minOperations(n):
     # Base cases
     if n <= 1:
         return 0
-    elif n == 2:
-        return 2
-    else:
-        while n > 2:
-            if n % 3 == 0:
-                return 3 + minOperations(n//3)
-            elif n % 2 == 0:
-                return 2 + minOperations(n//2)
-            else:
-                return 1 + minOperations(n - 1)
+
+    operations = 0
+    divisor = 2  # Start with 2 as the divisor
+
+    while n > 1:
+        # Check if n is divisible by the current divisor
+        if n % divisor == 0:
+            n //= divisor  # Perform the division
+            operations += divisor  # Increment the number of operations
+        else:
+            # If not divisible, increment the divisor
+            divisor += 1
+
+    return operations
