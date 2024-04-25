@@ -14,9 +14,9 @@ def minOperations(n):
         return 2
     else:
         while n > 2:
-            if n % 2 == 1 and isinstance(n/2, int):
-                return 3 + minOperations(n/3)
+            if n % 3 == 0:
+                return 3 + int(minOperations(n/3))
             elif n % 2 == 0:
                 return 2 + int(minOperations(n/2))
             elif not ((n % 3 == 0) and (n % 2 == 0)):
-                return n + minOperations(n/n)
+                return n + int(minOperations(n/n))
