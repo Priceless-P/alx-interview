@@ -15,8 +15,8 @@ def minOperations(n):
     else:
         while n > 2:
             if n % 3 == 0:
-                return 3 + int(minOperations(n/3))
+                return 3 + minOperations(n//3)
             elif n % 2 == 0:
-                return 2 + int(minOperations(n/2))
-            elif not ((n % 3 == 0) and (n % 2 == 0)):
-                return n + int(minOperations(n/n))
+                return 2 + minOperations(n//2)
+            else:
+                return 1 + minOperations(n - 1)
