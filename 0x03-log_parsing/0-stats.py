@@ -31,6 +31,7 @@ def parse_log():
     except KeyboardInterrupt:
         print_stats(total_file_size, status_code_count)
 
+
 def print_stats(total_file_size, status_code_count):
     """Prints stats"""
     print(f"Total file size: {total_file_size}")
