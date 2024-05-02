@@ -34,7 +34,7 @@ def parse_log():
 
 def print_stats(total_file_size, status_code_count):
     """Prints stats"""
-    print(f"Total file size: {total_file_size}")
+    print(f"File size: {total_file_size}")
     for status_code in sorted(status_code_count):
         print("{}: {}".format(status_code, status_code_count[status_code]))
 
