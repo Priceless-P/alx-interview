@@ -17,7 +17,7 @@ def parse_log():
 
             if len(parts) != 9:
                 continue
-            status_code = parts[7]
+            status_code = int(parts[7])
             file_size = int(parts[8])
 
             total_file_size += file_size
@@ -30,6 +30,7 @@ def parse_log():
 
     except KeyboardInterrupt:
         print_stats(total_file_size, status_code_count)
+    print_stats(total_file_size, status_code_count)
 
 
 def print_stats(total_file_size, status_code_count):
