@@ -15,10 +15,15 @@ def parse_log():
             line = line.strip()
             parts = line.split()
 
-            if len(parts) != 9:
+            if len(parts) < 5:
                 continue
-            status_code = int(parts[7])
-            file_size = int(parts[8])
+
+            status_code_str = parts[-2]
+            try:
+                status_code = int(status_code_str)
+            except ValueError:
+                continue
+            file_size = int(parts[-1])
 
             total_file_size += file_size
             status_code_count[status_code] += 1
