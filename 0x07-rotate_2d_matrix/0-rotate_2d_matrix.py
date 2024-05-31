@@ -10,7 +10,7 @@ def rotate_2d_matrix(matrix):
     # Transpose in place
     for row in range(n):
         for col in range(row, n):
-            matrix[row][col], matrix[col][row] = matrix[col][row],\
+            matrix[row][col], matrix[col][row] = matrix[col][row], \
                                                  matrix[row][col]
 
         # Reverse in place
