@@ -6,14 +6,26 @@
 def makeChange(coins, total):
     """Given a pile of coins of different values,
     determine the fewest number of coins needed
-    to meet a given amount total
+    to meet a given amount total using a greedy approach.
     """
     if total <= 0:
         return 0
-    new = [float('inf')] * (total + 1)
-    new[0] = 0
+
+    # Sort the coins in descending order
+    coins.sort(reverse=True)
+
+    num_coins = 0
+    remaining_total = total
 
     for coin in coins:
-        for i in range(coin, total + 1):
-            new[i] = min(new[i], new[i - coin] + 1)
-    return new[total] if new[total] != float('inf') else -1
+        if remaining_total <= 0:
+            break
+
+        count = remaining_total // coin
+        num_coins += count
+        remaining_total -= coin * count
+
+    if remaining_total > 0:
+        return -1
+
+    return num_coins
