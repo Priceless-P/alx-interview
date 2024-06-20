@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Prime Game
+"""
+
 
 def is_prime(n):
     """Checks whether or not a number is prime"""
