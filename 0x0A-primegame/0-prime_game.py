@@ -42,9 +42,7 @@ def play_game(sub_list):
         prime_chosen = primes[0]
 
         multiples_to_remove = find_multiples(prime_chosen, sub_list)
-
         sub_list = [num for num in sub_list if num not in multiples_to_remove]
-
         turn = 1 - turn
 
         if turn == 0:
